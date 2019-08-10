@@ -1,0 +1,74 @@
+/* usuario */
+.usuario {
+  position: relative;
+  padding-left: 120px;
+  padding-right: 15px;
+  width: 100%;
+  margin-left: -15px;
+  border: 1px solid #f3f3f3 !important;
+  padding-top: 17px;
+  padding-bottom: 18px;
+  border-radius: 6px;
+  margin: 20px 0px;
+  height: 100px;
+}
+.usuario:not(:last-child) {
+  border-bottom: 2px solid #e6ecf0;
+  padding-bottom: 15px;
+  margin-bottom: 15px;  
+}
+.usuario__cabecalho {
+}
+.usuario__nomeUsuario {
+  font-size: 14px;
+  font-weight: bold;
+  margin-right: 4px;
+}
+.usuario__userName {
+  font-size: 14px;
+}
+.usuario__fotoUsuario {
+  position: absolute;
+  top: 0;
+  left: 0px;
+  width: 98px;
+  height: 98px;
+  border-top-left-radius: 6px;
+  border-bottom-left-radius: 6px;
+}
+.usuario__conteudo {
+  font-size: 14px;
+  line-height: 20px;
+  white-space: pre-wrap;
+  word-wrap: break-word;
+}
+.usuario__footer {
+  margin-top: 10px;
+}
+.usuario__repositorio {
+  background-color: #000;
+  border: 0px;
+  color: #fff;
+  text-transform: uppercase;
+  font-weight: bold;
+  font-size: 12px;
+  padding: 8px 18px;
+  border-radius: 4px;
+  margin: 10px 0px;
+  display: inline-block;
+  float: right;
+}
+.usuario__repositorio:hover {
+  color: #fff;
+  text-decoration: none;
+  background-color: #313131;
+  opacity: 1;
+}
+.usuario__infos p {
+  font-size: 12px;
+  font-weight: bold;
+  color: #9a9a9a;
+  display: inline-block;
+  margin-right: 10px;
+  margin-top: 10px;
+}
