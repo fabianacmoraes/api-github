@@ -1,20 +1,14 @@
-import React, { Component, Fragment } from 'react';
-import Cabecalho from './components/Cabecalho';
-import NavMenu from './components/NavMenu'
-import Widget from './components/Widget'
-import Busca from './components/Busca'
+import React, { Component } from "react";
+import { BrowserRouter } from "react-router-dom";
+
+import Routes from "./routes";
 
 class App extends Component {
   render() {
     return (
-      <Fragment>
-        <Cabecalho>
-          <NavMenu/>
-        </Cabecalho>
-        <Widget>
-          <Busca/>
-        </Widget>
-      </Fragment>
+      <BrowserRouter>
+        <Routes />
+      </BrowserRouter>
     );
   }
 }

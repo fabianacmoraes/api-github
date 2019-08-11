@@ -3,6 +3,13 @@ import React, { Component } from "react";
 import Usuario from "../Usuario";
 
 class Listagem extends Component {
+  constructor() {
+    super();
+    this.state = {
+      users: []
+    };
+  }
+
   static getDerivedStateFromProps({ users }, state) {
     state = { users };
     return state;

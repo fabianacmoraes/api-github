@@ -1,68 +1,50 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## API-GITHUB
 
-## Available Scripts
+Aplicação responsável pela integração com a API do GitHub, afim de simplificar a busca por um usuário (tomando o login como parâmetro), assim como oferecer a possibilidade de visualizar os detalhes do perfil (na seção `/perfil`) e listar os seus repositórios.
 
-In the project directory, you can run:
+## Tecnologias
 
-### `npm start`
+Para o desenvolvimento da aplicação, foi utilizado o framework JavaScript [React](https://pt-br.reactjs.org/).
 
-Runs the app in the development mode.<br>
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+## Estrutura do Projeto
 
-The page will reload if you make edits.<br>
-You will also see any lint errors in the console.
+O projeto foi estruturado da seguinte maneira:
 
-### `npm test`
+```
+|-- src
+    |-- assets
+    |-- components
+    |-- pages
+```
 
-Launches the test runner in the interactive watch mode.<br>
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+### Pré-requisitos
 
-### `npm run build`
+Para executar a aplicação, é necessário ter as seguintes configurações no ambiente:
 
-Builds the app for production to the `build` folder.<br>
-It correctly bundles React in production mode and optimizes the build for the best performance.
+- `npm | yarn`
 
-The build is minified and the filenames include the hashes.<br>
-Your app is ready to be deployed!
+#### Instalação de Dependências
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+Para instalar as dependências do projeto, será necessário executar o comando a seguir:
 
-### `npm run eject`
+- `npm install | yarn install`
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+### Scripts Disponíveis
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+No diretório do projeto, pode-se executar os seguintes comandos:
 
-Instead, it will copy all the configuration files and the transitive dependencies (Webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+#### `npm start | yarn start`
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+Executa a aplicação em modo de desenvolvimento (hot reload).<br>
+Acesse [http://localhost:3000](http://localhost:3000) no seu navegador para visualizar a aplicação.
 
-## Learn More
+A cada alteração feita, a página da aplicação irá recarregar.<br>
+Todos os problemas relacionados a linter serão exibidos na console do navegador.
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+#### `npm test | yarn test`
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+Executa o `test runner` no modo interativo.<br>
 
-### Code Splitting
+#### `npm run build | yarn build`
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
-
-### Analyzing the Bundle Size
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
-
-### Making a Progressive Web App
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
-
-### Advanced Configuration
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
-
-### Deployment
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
-
-### `npm run build` fails to minify
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+Monta a estrutura da aplicação que deverá ser utilizada para o ambiente de produção. O conteúdo se encontrará dentro do diretório `build`.<br>
