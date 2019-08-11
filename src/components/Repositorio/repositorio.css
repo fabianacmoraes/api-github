@@ -1,0 +1,57 @@
+.perfil__fotoUsuario {
+    width: 120px;
+    height: 120px;
+    display: block;
+    margin: 0 auto;
+    border-radius: 4px;
+    margin-bottom: 10px;
+    border: 1px solid #d1d5da;
+}
+
+.perfil__cabecalho {
+    text-align: center;
+}
+span.perfil__nomeUsuario {
+    font-size: 14px;
+    font-weight: bold;
+}
+p.perfil__bioUsuario {
+    font-size: 12px;
+    color: #6f6f6f;
+}
+p.perfil__followersUsuario,
+p.perfil_followingUsuario {
+    font-size: 12px;
+    display: inline-block;
+    margin: 10px 10px;
+}
+.perfil__itemRepositorio {
+    padding: 15px;
+    width: 100%;
+    border: 1px solid #d1d5da;
+    border-radius: 6px;
+    margin: 20px 0px;
+    line-height: 20px;
+}
+p.perfil__nomeRepositorio {
+    font-size: 16px;
+    font-weight: bold;
+}
+p.perfil__descricaoRepositorio {
+    font-size: 14px;
+}
+p.perfil__startsRepositorio {
+    font-size: 14px;
+}
+p.perfil__followersUsuario span,
+p.perfil_followingUsuario span,
+p.perfil__startsRepositorio span {
+    text-align: center;
+    font-size: 12px;
+    background-color: rgba(27,31,35,.08);
+    border-radius: 100%;
+    width: 20px;
+    height: 20px;
+    display: inline-block;
+    line-height: 20px;
+}
