@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import { toLower } from "ramda";
 
 import arrayUtils from "../../utils/array";
+import arrow from "./down-arrow.png";
 import "./repositorio.css";
 
 class Repositorio extends Component {
@@ -23,11 +24,21 @@ class Repositorio extends Component {
         }
       ]
     };
+    this.orderRepos = this.orderRepos.bind(this);
   }
 
   parseReposNameToLower(arr) {
     arr.forEach(obj => {
       obj.name = toLower(obj.name);
+    });
+  }
+
+  orderRepos(keys) {
+    if (!keys) keys = this.state.keys;
+    this.parseReposNameToLower(this.state.repos);
+    const keysByPriority = arrayUtils.sortByKey(keys, "priority");
+    this.setState({
+      repos: arrayUtils.sortByKeys(this.state.repos, keysByPriority)
     });
   }
 
@@ -42,14 +53,10 @@ class Repositorio extends Component {
       .then(response => response.json())
       .then(responseJson => {
         const repos = responseJson;
-        this.parseReposNameToLower(repos);
-        const keysByPriority = arrayUtils.sortByKey(
-          this.state.keys,
-          "priority"
-        );
         this.setState({
-          repos: arrayUtils.sortByKeys(repos, keysByPriority)
+          repos
         });
+        this.orderRepos();
       });
   }
 
@@ -73,6 +80,38 @@ class Repositorio extends Component {
             </p>
           </div>
         </article>
+
+        <div className="perfil__repositoriosOrdenar">
+          <p>Ordenar por:</p>
+          <div
+            className="perfil__alfabetoOrdenar"
+            onClick={() =>
+              this.orderRepos([
+                {
+                  name: "name",
+                  priority: 0
+                }
+              ])
+            }
+          >
+            <p>A - Z</p>
+            <img src={arrow} alt="Seta para ordenação alfabética" />
+          </div>
+          <div
+            className="perfil__estrelasOrdenar"
+            onClick={() =>
+              this.orderRepos([
+                {
+                  name: "stargazers_count",
+                  priority: 0
+                }
+              ])
+            }
+          >
+            <p>Stars</p>
+          </div>
+        </div>
+
         <div className="perfil__listaRepositorios">
           {this.state.repos.map(repo => {
             return (

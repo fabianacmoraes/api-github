@@ -7,6 +7,13 @@ import Widget from "../../components/Widget";
 import Repositorio from "../../components/Repositorio";
 
 class Perfil extends Component {
+  constructor() {
+    super();
+    this.state = {
+      user: {}
+    };
+  }
+
   render() {
     try {
       const { user } = this.props.location.state;
