@@ -1,36 +1,86 @@
-import React, { Component } from 'react'
-import './repositorio.css'
+import React, { Component } from "react";
+
+import "./repositorio.css";
+import arrow from './down-arrow.png';
 
 class Repositorio extends Component {
-    render() {
-        return (
-            <div className="perfil container">
-                <article className="perfil">
-                    <div className="perfil__cabecalho">
-                        <img className="perfil__fotoUsuario" src="" alt="" />
-                        <span className="perfil__nomeUsuario">Nome</span>
-                        <p className="perfil__bioUsuario">bio</p>
-                        <p className="perfil__followersUsuario">Followers: <span>10</span></p>
-                        <p className="perfil_followingUsuario">Following: <span>20</span></p>
-                    </div>
-                </article>
+  constructor(props) {
+    super();
+    this.state = {
+      user: props.user,
+      repos: []
+    };
+  }
 
-                <div className="perfil__listaRepositorios">
-                    <div className="perfil__itemRepositorio">
-                        <p className="perfil__nomeRepositorio"><a href="/">Nome do repositório (com link do repositório no github)</a></p>
-                        <p className="perfil__descricaoRepositorio">Descrição do repositório</p>
-                        <p className="perfil__startsRepositorio">Starts: <span>10</span></p>
-                    </div>
-                    
-                    <div className="perfil__itemRepositorio">
-                        <p className="perfil__nomeRepositorio"><a href="/">Nome do repositório (com link do repositório no github)</a></p>
-                        <p className="perfil__descricaoRepositorio">Descrição do repositório</p>
-                        <p className="perfil__startsRepositorio">Starts: <span>10</span></p>
-                    </div>
-                </div>
+  componentDidMount() {
+    fetch(`https://api.github.com/users/${this.state.user.login}/repos`, {
+      method: "GET",
+      headers: {
+        Accept: "application/json",
+        "Content-Type": "application/json"
+      }
+    })
+      .then(response => response.json())
+      .then(responseJson => {
+        const repos = responseJson;
+        this.setState({
+          repos
+        });
+      });
+  }
+
+  render() {
+    return (
+      <div className="perfil container">
+        <article className="perfil">
+          <div className="perfil__cabecalho">
+            <img
+              className="perfil__fotoUsuario"
+              src={this.state.user.avatar_url}
+              alt=""
+            />
+            <span className="perfil__nomeUsuario">{this.state.user.login}</span>
+            <p className="perfil__bioUsuario">{this.state.user.bio}</p>
+            <p className="perfil__followersUsuario">
+              Followers: <span>{this.state.user.followers}</span>
+            </p>
+            <p className="perfil_followingUsuario">
+              Following: <span>{this.state.user.following}</span>
+            </p>
+          </div>
+        </article>
+        
+        <div className="perfil__repositoriosOrdenar">
+            <p>Ordenar por:</p>
+            <div className="perfil__alfabetoOrdenar">
+                <p>A - Z</p>
+                <img src={arrow} alt="Seta para ordenação alfabética" />
             </div>
-        )
-    }
+            <div className="perfil__estrelasOrdenar">
+                <p>Stars</p>
+            </div>
+        </div>
+
+        <div className="perfil__listaRepositorios">
+          {this.state.repos.map(repo => {
+            return (
+              <div className="perfil__itemRepositorio" key={repo.id}>
+                <p className="perfil__nomeRepositorio">
+                  <a href={repo.html_url}>{repo.name}</a>
+                </p>
+                <p className="perfil__descricaoRepositorio">
+                  {repo.description}
+                </p>
+                <p className="perfil__startsRepositorio">
+                  Stars: <span>{repo.stargazers_count}</span>
+                </p>
+              </div>
+            );
+          })}
+        </div>
+      </div>
+    );
+  }
 }
 
-export default Repositorio
+export default Repositorio;
