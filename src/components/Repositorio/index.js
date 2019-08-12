@@ -1,5 +1,7 @@
 import React, { Component } from "react";
+import { toLower } from "ramda";
 
+import arrayUtils from "../../utils/array";
 import "./repositorio.css";
 
 class Repositorio extends Component {
@@ -7,8 +9,26 @@ class Repositorio extends Component {
     super();
     this.state = {
       user: props.user,
-      repos: []
+      repos: [],
+      keys: [
+        {
+          name: "name",
+          order: "asc",
+          priority: 0
+        },
+        {
+          name: "stargazers_count",
+          order: "asc",
+          priority: 1
+        }
+      ]
     };
+  }
+
+  parseReposNameToLower(arr) {
+    arr.forEach(obj => {
+      obj.name = toLower(obj.name);
+    });
   }
 
   componentDidMount() {
@@ -22,8 +42,13 @@ class Repositorio extends Component {
       .then(response => response.json())
       .then(responseJson => {
         const repos = responseJson;
+        this.parseReposNameToLower(repos);
+        const keysByPriority = arrayUtils.sortByKey(
+          this.state.keys,
+          "priority"
+        );
         this.setState({
-          repos
+          repos: arrayUtils.sortByKeys(repos, keysByPriority)
         });
       });
   }
