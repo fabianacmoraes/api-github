@@ -41,6 +41,8 @@ O projeto foi estruturado da seguinte maneira:
             `-- index.js
         |-- Perfil
             `-- index.js
+    |-- utils
+        `-- array.js
     `-- App.css
     `-- App.js
     `-- index.css
