@@ -7,7 +7,6 @@
     margin-bottom: 10px;
     border: 1px solid #d1d5da;
 }
-
 .perfil__cabecalho {
     text-align: center;
 }
@@ -54,4 +53,43 @@ p.perfil__startsRepositorio span {
     height: 20px;
     display: inline-block;
     line-height: 20px;
+}
+.perfil__alfabetoOrdenar img,
+.perfil__estrelasOrdenar img {
+    width: 10px;
+    display: inline-block;
+    vertical-align: middle;
+    margin-left: 2px;
+}
+.perfil__repositoriosOrdenar {
+    text-align: right;
+}
+.perfil__alfabetoOrdenar,
+.perfil__estrelasOrdenar {
+    cursor: pointer;
+    background-color: #f3f3f3;
+    display: inline-block;
+    border: 1px solid #ccc;
+    padding: 3px 5px;
+    border-radius: 3px;
+    margin: 10px 5px;
+}
+.perfil__alfabetoOrdenar p,
+.perfil__estrelasOrdenar p {
+    display: inline-block;
+    font-size: 12px;
+    font-weight: bold;
+    line-height: 12px;
+    vertical-align: middle;
+}
+.perfil__alfabetoOrdenar:hover, .perfil__estrelasOrdenar:hover {
+    border-color: #e8e8e8;
+    background-color: #e8e8e8;
+}
+.perfil__repositoriosOrdenar > p {
+    font-size: 12px;
+    display: inline-block;
+    font-weight: bold;
+    vertical-align: middle;
+    margin-right: 5px;
 }
